@@ -1,0 +1,141 @@
+--Problem Statement--
+You are given a neural network modeled as a tree with N neurons (nodes) numbered from 1 to N. The neurons are connected by N-1 synapses (edges), forming a connected acyclic graph.
+
+Each synapse can be either active or inactive. Initially, all synapses are inactive.
+
+You need to process Q operations of two types:
+
+Toggle Activation on Path (u, v):Toggle the activation state of all synapses on the unique path between neuron u and neuron v (i.e., active synapses become inactive, inactive become active).
+Query Active Synapses Count on Path (u, v):Output how many synapses are currently active on the path between neuron u and neuron v.
+Input Format
+First line contains integer N denoting the number of neurons.
+
+Next N-1 lines each contain two integers a and b, denoting a synapse between neurons a and b.
+
+Next line contains integer Q denoting the number of queries.
+
+Next Q lines describe queries:
+
+For toggle operation 1: Toggle the activation state of all synapses on the unique path between neuron u and neuron v (i.e., active synapses become inactive, inactive become active).
+
+For query operation 2: Output how many synapses are currently active on the path between neuron u and neuron v.
+
+Output Format
+For each query of type 2, print a single integer — the number of active synapses on the path between u and v.
+
+Constraints
+1 ≤ N, Q ≤ 10^5
+
+
+1 ≤ a, b, u, v ≤ N
+
+
+It is guaranteed the input edges form a tree.
+
+Sample Testcase 0
+Testcase Input
+5
+1 2
+1 3
+3 4
+3 5
+4
+1 2 4
+2 2 5
+1 4 5
+2 1 5
+Testcase Output
+2
+2
+Explanation
+
+Initial State: All synapses (edges) are inactive.
+
+Query 1: Toggle (1 2 4): Toggle synapses on path 2-4.
+
+
+Path 2-4: 2-1-3-4 (edges: 2-1, 1-3, 3-4).
+
+If edges 2-1, 1-3, 3-4 are inactive, then toggle to active.
+
+Active edges: 2-1, 1-3, 3-4.
+
+
+Query 2: Query (2 2 5): Count active synapses on path 2-5.
+
+
+Path 2-5: 2-1-3-5 (edges: 2-1, 1-3, 3-5).
+
+Active edges on path: 2-1, 1-3 (2 edges).
+
+If edge 3-5 is inactive, then it contributes 0.
+
+Total active: 2.
+
+
+Query 3: Toggle (1 4 5): Toggle synapses on path 4-5.
+
+
+Path 4-5: 4-3-5 (edges: 3-4, 3-5).
+
+Edge 3-4 is active (from Query 1), toggle to inactive.
+
+Edge 3-5 is inactive, toggle to active.
+
+Active edges now: 2-1, 1-3, 3-5.
+
+
+Query 4: Query (2 1 5): Count active synapses on path 1-5.
+
+
+Path 1-5: 1-3-5 (edges: 1-3, 3-5).
+
+Active edges on path: 1-3, 3-5 (2 edges).
+
+Total active: 2.
+
+
+Sample Testcase 1
+Testcase Input
+3
+1 2
+2 3
+3
+2 1 3
+1 1 3
+2 1 3
+Testcase Output
+0
+2
+Explanation
+
+Initial State: All synapses (edges) are inactive.
+
+Query 1: Query (2 1 3): Count active synapses on path 1-3.
+
+
+Path 1-3: 1-2-3 (edges: 1-2, 2-3).
+
+If all edges are inactive, then active count = 0.
+
+Total active: 0.
+
+
+Query 2: Toggle (1 1 3): Toggle synapses on path 1-3.
+
+
+Path 1-3: 1-2-3 (edges: 1-2, 2-3).
+
+If edges 1-2, 2-3 are inactive, then toggle to active.
+
+Active edges: 1-2, 2-3.
+
+
+Query 3: Query (2 1 3): Count active synapses on path 1-3.
+
+
+Path 1-3: 1-2-3 (edges: 1-2, 2-3).
+
+Active edges on path: 1-2, 2-3 (2 edges).
+
+Total active: 2.
