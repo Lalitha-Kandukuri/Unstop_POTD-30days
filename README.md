@@ -24,18 +24,6 @@ It's about showing up **every single day**, learning something new, and becoming
 
 ---
 
-## 📅 Journey
-
-```
-Day 01 ✅
-Day 02 ✅
-Day 03 ✅
-...
-Day 30 🎯
-```
-
----
-
 ## 📂 Repository
 
 ```
@@ -51,52 +39,6 @@ Day 30 🎯
 │
 └── ...
 ```
-
----
-
-## ⚔️ Rules I Follow
-
-- 🧠 Solve one problem every day
-- 🚫 No skipping
-- 📈 Keep improving
-- 🔥 Protect the streak
-
----
-
-## 💡 Philosophy
-
-```
-while (!success) {
-    learn();
-    practice();
-    improve();
-    repeat();
-}
-```
-
----
-
-## 📊 Progress
-
-```
-□□□□□□□□□□ 0%
-
-⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-```
-
-*(Updates every day.)*
-
----
-
-## 🚀 Final Goal
-
-```
-30 Problems
-30 Days
-0 Excuses
-∞ Learning
-```
-
 ---
 
 <div align="center">
