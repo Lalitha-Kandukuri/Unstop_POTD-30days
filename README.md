@@ -58,7 +58,6 @@ Day 30 🎯
 
 - 🧠 Solve one problem every day
 - 🚫 No skipping
-- 🚫 No copying
 - 📈 Keep improving
 - 🔥 Protect the streak
 
