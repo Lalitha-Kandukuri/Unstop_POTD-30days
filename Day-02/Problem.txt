@@ -1,0 +1,103 @@
+-- Problem Statement --
+
+In a futuristic lab, a Neuro-Trigger Network consists of N cognitive receptors lined up in a sequence. Each receptor can be in one of 8 possible brainwave states encoded by integers 0 to 7, represented by 3-bit binary patterns.
+
+Each receptor can emit or absorb Cognition Waves based on certain rules. You are given an initial array A[1..N] representing the state of each receptor.
+
+You have to process Q events. There are two types of events:
+
+Trigger Range Update (Type 1):
+For a given range [L, R], apply a bitwise XOR with a 3-bit mask M on all receptors in that range.
+
+Stabilization Query (Type 2):
+For a given range [L, R], find the maximum number of receptors that share the same final state.
+
+Your task is to handle all Q events efficiently.
+
+Input Format
+The first line of input contains two integer N and Q denoting the cognitive receptors lined up in a sequence and the number of events to be processed.
+
+The second line of input contains an integer A[1] A[2] ... A[N] denoting the state of each receptor.
+
+Q lines follow:
+
+Each line is either:
+
+1 and  contains 3 integrs L, R and M denoting the XOR of M, i.e, 3-bit mask in the range of 0 to 7, i.e, L, R.
+
+2 and contains 2 integer L and R denoting the maximum number of receptors that share the same final state, i.e,Query most frequent state count in [L, R].
+
+Output Format
+For each Type 2 query, print a single integer on a new line — the count of the most frequent state in the given range after considering all operations.
+
+Constraints
+1 <= N <= 10^5
+
+1 <= Q <= 10^5
+
+0 <= A[i] <= 7 (each element is a 3-bit state)
+
+1 <= L <= R <= N
+
+0 <= M <= 7
+
+Sample Testcase 0
+Testcase Input
+4 3
+3 3 3 3
+1 1 4 2
+2 1 4
+2 2 3
+Testcase Output
+4
+2
+Explanation
+Initial array: [3, 3, 3, 3] (all state 3).
+
+
+
+XOR [1, 4] with 2: 3 (011) XOR 2 (010) = 1 (001). Array: [1, 1, 1, 1].
+
+Query [1, 4]: All 1s. Most frequent count: 4.
+
+Query [2, 3]: States [1, 1]. Most frequent count: 2. 
+
+
+Output: 4, 2.
+
+Sample Testcase 1
+Testcase Input
+5 4
+1 2 3 2 1
+1 2 4 1
+2 1 5
+1 1 5 2
+2 2 3
+Testcase Output
+2
+1
+Explanation
+Initial array: [1, 2, 3, 2, 1].
+
+
+
+XOR [2, 4] with 1:
+ Pos 2: 2 (010) XOR 1 (001) = 3 (011).
+ Pos 3: 3 (011) XOR 1 (001) = 2 (010).
+ Pos 4: 2 (010) XOR 1 (001) = 3 (011).
+ Array: [1, 3, 2, 3, 1].
+
+Query [1, 5]: States [1, 3, 2, 3, 1]. Counts: 1→2, 3→2, 2→1. Most frequent: 2.
+
+XOR [1, 5] with 2:
+ Pos 1: 1 (001) XOR 2 (010) = 3 (011).
+ Pos 2: 3 (011) XOR 2 (010) = 1 (001).
+ Pos 3: 2 (010) XOR 2 (010) = 0 (000).
+ Pos 4: 3 (011) XOR 2 (010) = 1 (001).
+ Pos 5: 1 (001) XOR 2 (010) = 3 (011).
+ Array: [3, 1, 0, 1, 3].
+
+Query [2, 3]: States [1, 0]. Counts: 1→1, 0→1. Most frequent: 1. 
+
+
+Output: 2, 1.
