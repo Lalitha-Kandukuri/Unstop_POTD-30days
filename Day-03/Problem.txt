@@ -1,0 +1,82 @@
+--Problem Statement--
+
+In a futuristic energy control station, N sectors are arranged in a straight line. Each sector has an initial energy level given by the array E and a target energy level given by the array T.
+
+You can redistribute energy using a series of resonant redistribution waves.
+
+In a single redistribution wave, you may choose any contiguous subarray of sectors and uniformly increase or decrease the energy level of every sector in that subarray by 1 unit.
+
+Your objective is to transform the initial energy configuration into the target configuration, i.e., make the final energy level of every sector exactly equal to T[i], while using the minimum number of redistribution wave operations.
+
+Input Format
+The first line contains an integer N, denoting the number of sectors.
+
+The second line contains N space-separated integers E[1..N], representing the initial energy levels.
+
+The third line contains N space-separated integers T[1..N], representing the target energy levels.
+
+Output Format
+Print a single integer representing the minimum number of redistribution wave operations required to transform E into T.
+
+Constraints
+1 ≤ N ≤ 10^3
+
+-10^9 ≤ E[i] ≤ 10^9
+
+-10^9 ≤ T[i] ≤ 10^9
+
+Sample Testcase 0
+Testcase Input
+5
+1 3 2 1 2
+3 3 3 3 3
+Testcase Output
+4
+Explanation
+Initial energy: [1, 3, 2, 1, 2], thresholds: [3, 3, 3, 3, 3].
+
+
+Difference array: [2, 0, 1, 2, 1] (energy needed).
+
+
+Process segments needing energy increase:
+
+
+
+Index 0: Needs +2, 2 waves on [0,0]. Updates E[0]=3, diff[0]=0.
+
+Indices 2-4: Need [1, 2, 1], apply 1 wave on [2,4]. Updates E[2]=3, E[3]=2, E[4]=3, diff=[0, 0, 0, 1, 0].
+
+Index 3: Needs +1, 1 wave on [3,3]. Updates E[3]=3, diff[3]=0.
+
+
+Total waves: 2 + 1 + 1 = 4.
+
+Sample Testcase 1
+Testcase Input
+4
+5 2 1 0
+2 3 3 3
+Testcase Output
+6
+Explanation
+Initial energy: [5, 2, 1, 0], thresholds: [2, 3, 3, 3].
+
+
+Difference array: [-3, 1, 2, 3] (negative means excess energy).
+
+
+Process segments:
+
+
+
+Index 0: Needs -3, 3 waves on [0,0] to decrease E[0]=2, diff[0]=0.
+
+Indices 1-3: Need [1, 2, 3], apply 1 wave on [1,3]. Updates E[1]=3, E[2]=2, E[3]=1, diff=[0, 0, 1, 2].
+
+Indices 2-3: Need [1, 2], apply 1 wave on [2,3]. Updates E[2]=3, E[3]=2, diff=[0, 0, 0, 1].
+
+Index 3: Needs +1, 1 wave on [3,3]. Updates E[3]=3, diff[3]=0.
+
+
+Total waves: 3 + 1 + 1 + 1 = 6.
